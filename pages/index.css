@@ -1,0 +1,114 @@
+* {
+  color: #222;
+  font-weight: 200;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h1 {
+  font-size: 40;
+  font-weight: 200;
+  line-height: 40px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+h2,
+h3,
+h4 {
+  margin-bottom: 15px;
+}
+
+h2 a,
+h3 a,
+h4 a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+h2 a::before,
+h3 a::before,
+h4 a::before {
+  content: '';
+  display: block;
+  height: 70px; /* fixed header height*/
+  margin: -70px 0 0; /* negative fixed header height */
+}
+
+strong {
+  font-weight: bolder;
+}
+
+em {
+  font-style: italic;
+}
+
+ul {
+  margin: 0;
+}
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -5px;
+}
+ul.dashed > li:before {
+  content: '- ';
+  text-indent: -5px;
+}
+
+/* Main content */
+.main {
+  margin-top: 70px;
+}
+
+/* Quotes */
+blockquote {
+  margin: 20px 50px;
+}
+
+.headline {
+  text-decoration: underline;
+}
+
+/* Tables */
+th,
+td {
+  margin: 0;
+  padding: 5px;
+  vertical-align: top;
+}
+td:nth-child(1) {
+  width: 48%;
+}
+td ul {
+  padding-left: 15px;
+}
+td blockquote {
+  margin: 10px 10px 10px 30px;
+}
+th {
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+td {
+  border-bottom: 1px solid #333;
+}
+td:nth-child(2) {
+  border-left: 1px solid #333;
+}

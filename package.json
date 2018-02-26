@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "next -p 1337",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --coverage --verbose",
+    "test:ci": "jest --coverage --verbose --ci",
+    "test:clean": "rimraf ./coverage",
+    "test:watch": "yarn test --watchAll",
+    "test:changed": "yarn test--watch",
+    "test:update": "yarn test -u"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +22,11 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0",
+    "regenerator-runtime": "^0.11.1",
     "standard": "^11.0.0"
   }
 }

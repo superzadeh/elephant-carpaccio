@@ -23,18 +23,23 @@ export default class home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      result: '0'
+      priceDiscounted: '0',
+      priceWithoutDiscount: '0'
     }
+    this.handleQuantityChange = this.handleQuantityChange.bind(this)
   }
 
-  handleQuantityChange = event => {
+  handleQuantityChange(event) {
     const quantity = event.target.value
     const amount = quantity * price
     const discounted = applyDiscount(amount)
-    this.setState({ result: discounted })
+    this.setState({
+      priceDiscounted: discounted,
+      priceWithoutDiscount: amount
+    })
   }
   render() {
-    const { result } = this.state
+    const { priceDiscounted, priceWithoutDiscount } = this.state
     return (
       <div className="container">
         <h1>Elephant Carpaccio</h1>
@@ -43,7 +48,11 @@ export default class home extends Component {
         &nbsp;
         <input name="quantity" type="text" onChange={this.handleQuantityChange} />
         <br />
-        <div>{result}</div>
+        <br />
+        <div>
+          Total price with discount: <strong>{priceDiscounted}</strong>
+        </div>
+        <div>Total price without discount: {priceWithoutDiscount}</div>
         <style global jsx>
           {style}
         </style>

@@ -35,10 +35,22 @@ export default class home extends Component {
     const amount = quantity * this.price.value
     const discounted = applyDiscount(amount)
     const saving = amount - discounted
-    const state = this.stateCode.value
+    const state = this.stateCode.value.toUpperCase()
     let priceWithTax = discounted
     if (state === 'UT') {
       priceWithTax = priceWithTax + (priceWithTax * 6.85 / 100)
+    }
+    if (state === 'NV') {
+      priceWithTax = priceWithTax + (priceWithTax * 8 / 100)
+    }
+    if (state === 'TX') {
+      priceWithTax = priceWithTax + (priceWithTax * 6.25 / 100)
+    }
+    if (state === 'AL') {
+      priceWithTax = priceWithTax + (priceWithTax * 4 / 100)
+    }
+    if (state === 'CA') {
+      priceWithTax = priceWithTax + (priceWithTax * 8.25 / 100)
     }
     this.setState({
       priceDiscounted: discounted,

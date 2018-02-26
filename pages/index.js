@@ -6,8 +6,16 @@ const price = 100
 const applyDiscount = totalAmount => {
   if (totalAmount < 1000) {
     return totalAmount
-  } else { // (totalAmount >= 1000 && totalAmount < 5000) {
+  } else if (totalAmount >= 1000 && totalAmount < 5000) {
     return totalAmount - totalAmount * 3 / 100
+  } else if (totalAmount >= 5000 && totalAmount < 7000) {
+    return totalAmount - totalAmount * 5 / 100
+  } else if (totalAmount >= 7000 && totalAmount < 10000) {
+    return totalAmount - totalAmount * 7 / 100
+  } else if (totalAmount >= 10000 && totalAmount < 50000) {
+    return totalAmount - totalAmount * 10 / 100
+  } else {
+    return totalAmount - totalAmount * 15 / 100
   }
 }
 

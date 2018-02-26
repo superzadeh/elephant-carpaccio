@@ -35,14 +35,20 @@ export default class home extends Component {
     const amount = quantity * this.price.value
     const discounted = applyDiscount(amount)
     const saving = amount - discounted
+    const state = this.stateCode.value
+    let priceWithTax = discounted
+    if (state === 'UT') {
+      priceWithTax = priceWithTax + (priceWithTax * 6.85 / 100)
+    }
     this.setState({
       priceDiscounted: discounted,
       priceWithoutDiscount: amount,
-      saving
+      saving,
+      priceWithTax
     })
   }
   render () {
-    const { priceDiscounted, priceWithoutDiscount, saving } = this.state
+    const { priceDiscounted, priceWithoutDiscount, saving, priceWithTax } = this.state
     return (
       <div className='container'>
         <h1>Elephant Carpaccio</h1>
@@ -66,11 +72,22 @@ export default class home extends Component {
         />
         <br />
         <br />
+        <label htmlFor='stateCode'>State</label>
+        &nbsp;
+        <input
+          name='stateCode'
+          type='text'
+          onChange={this.handleQuantityChange}
+          ref={c => (this.stateCode = c)}
+        />
+        <br />
+        <br />
         <div>Total price without discount: {priceWithoutDiscount}$</div>
         <div>
           Total price with discount: <strong>{priceDiscounted}$</strong>
         </div>
         <div>You just saved {saving}$</div>
+        <div>Total amount to pay (tax included) {priceWithTax}$</div>
         <style global jsx>
           {style}
         </style>

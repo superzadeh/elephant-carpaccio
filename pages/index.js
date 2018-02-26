@@ -20,35 +20,50 @@ const applyDiscount = totalAmount => {
 }
 
 export default class home extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      priceDiscounted: '0',
-      priceWithoutDiscount: '0'
+      priceDiscounted: 0,
+      priceWithoutDiscount: 0,
+      price: 100
     }
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
   }
 
-  handleQuantityChange(event) {
-    const quantity = event.target.value
-    const amount = quantity * price
+  handleQuantityChange (event) {
+    const quantity = this.quantity.value
+    const amount = quantity * this.price.value
     const discounted = applyDiscount(amount)
-    const saving =  amount - discounted
+    const saving = amount - discounted
     this.setState({
       priceDiscounted: discounted,
       priceWithoutDiscount: amount,
-      saving,
+      saving
     })
   }
-  render() {
+  render () {
     const { priceDiscounted, priceWithoutDiscount, saving } = this.state
     return (
-      <div className="container">
+      <div className='container'>
         <h1>Elephant Carpaccio</h1>
         <br />
-        <label htmlFor="quantity">Number of Items</label>
+        <label htmlFor='quantity'>Number of Items</label>
         &nbsp;
-        <input name="quantity" type="text" onChange={this.handleQuantityChange} />
+        <input
+          name='quantity'
+          type='text'
+          onChange={this.handleQuantityChange}
+          ref={c => (this.quantity = c)}
+        />
+        <br />
+        <label htmlFor='price'>Price per Item</label>
+        &nbsp;
+        <input
+          name='price'
+          type='text'
+          onChange={this.handleQuantityChange}
+          ref={c => (this.price = c)}
+        />
         <br />
         <br />
         <div>Total price without discount: {priceWithoutDiscount}$</div>

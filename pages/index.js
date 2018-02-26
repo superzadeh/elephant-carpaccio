@@ -33,13 +33,15 @@ export default class home extends Component {
     const quantity = event.target.value
     const amount = quantity * price
     const discounted = applyDiscount(amount)
+    const saving =  amount - discounted
     this.setState({
       priceDiscounted: discounted,
-      priceWithoutDiscount: amount
+      priceWithoutDiscount: amount,
+      saving,
     })
   }
   render() {
-    const { priceDiscounted, priceWithoutDiscount } = this.state
+    const { priceDiscounted, priceWithoutDiscount, saving } = this.state
     return (
       <div className="container">
         <h1>Elephant Carpaccio</h1>
@@ -49,10 +51,11 @@ export default class home extends Component {
         <input name="quantity" type="text" onChange={this.handleQuantityChange} />
         <br />
         <br />
+        <div>Total price without discount: {priceWithoutDiscount}$</div>
         <div>
-          Total price with discount: <strong>{priceDiscounted}</strong>
+          Total price with discount: <strong>{priceDiscounted}$</strong>
         </div>
-        <div>Total price without discount: {priceWithoutDiscount}</div>
+        <div>You just saved {saving}$</div>
         <style global jsx>
           {style}
         </style>

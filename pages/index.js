@@ -83,7 +83,6 @@ export default class home extends Component {
           ref={c => (this.price = c)}
         />
         <br />
-        <br />
         <label htmlFor='stateCode'>State</label>
         &nbsp;
         <input

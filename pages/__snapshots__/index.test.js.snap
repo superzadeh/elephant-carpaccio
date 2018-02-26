@@ -20,8 +20,50 @@ exports[`index should render correctly 1`] = `
     type="text"
   />
   <br />
+  <label
+    htmlFor="price"
+  >
+    Price per Item
+  </label>
+   
+  <input
+    name="price"
+    onChange={[Function]}
+    type="text"
+  />
+  <br />
+  <label
+    htmlFor="stateCode"
+  >
+    State
+  </label>
+   
+  <input
+    name="stateCode"
+    onChange={[Function]}
+    type="text"
+  />
+  <br />
+  <br />
   <div>
+    Total price without discount: 
     0
+    $
+  </div>
+  <div>
+    Total price with discount: 
+    <strong>
+      0
+      $
+    </strong>
+  </div>
+  <div>
+    You just saved 
+    $
+  </div>
+  <div>
+    Total amount to pay (tax included) 
+    $
   </div>
   <style
     global={true}
